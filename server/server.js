@@ -11,6 +11,19 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const clientDist = path.join(__dirname, '..', 'dist')
 const statuses = ['To Do', 'In Progress', 'Done']
 const priorities = ['Low', 'Medium', 'High', 'Critical']
+const mimeTypes = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.mjs': 'application/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.wasm': 'application/wasm',
+}
 
 function sendJson(response, status, data) {
   response.writeHead(status, {
@@ -272,7 +285,9 @@ async function serveClient(request, response, url) {
   try {
     const filePath = url.pathname === '/' ? path.join(clientDist, 'index.html') : path.join(clientDist, url.pathname)
     const file = await readFile(filePath)
-    response.writeHead(200)
+    response.writeHead(200, {
+      'Content-Type': mimeTypes[path.extname(filePath)] || 'application/octet-stream',
+    })
     response.end(file)
   } catch {
     try {

@@ -1,0 +1,37 @@
+Api s 
+POST /api/auth/signup
+POST /api/auth/login
+GET /api/me
+GET /api/users
+GET /api/projects
+POST /api/projects
+POST /api/projects/:projectId/members
+DELETE /api/projects/:projectId/members/:userId
+GET /api/projects/:projectId/tasks
+POST /api/projects/:projectId/tasks
+PUT /api/tasks/:taskId
+DELETE /api/tasks/:taskId
+
+logins 
+
+Admin
+Email: admin@taskmanager.dev
+Password: admin123
+Role: Admin
+
+Member
+Email: member@taskmanager.dev
+Password: member123
+Role: Member
+
+details 
+Login/signup now appears first.
+User must select whether they are logging in as Admin or Member.
+Backend verifies email, password, and role.
+Passwords are hashed using Node crypto.
+Auth uses bearer tokens.
+Admin can create projects, add/remove members, create/assign/delete tasks.
+Member only sees admin-allocated projects and assigned tasks.
+Member can update assigned task status only.
+Dashboard shows total tasks, status counts, tasks per user, and overdue tasks.
+Added Railway-ready start script and .env.example.gi
