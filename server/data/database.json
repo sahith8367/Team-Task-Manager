@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": "u-admin",
+      "name": "Admin User",
+      "email": "admin@taskmanager.dev",
+      "role": "Admin",
+      "passwordHash": "3ca28d0e35914c9f23156d46cd9614c6:37feb1cc65b31b8b1006f93f26d670ad2f135463edbf23b3a30b67190f431e8f89bbd6fda529662d15a2b19fdb0fb081946b8c71e56d36ed083144b2a880269f"
+    },
+    {
+      "id": "u-member",
+      "name": "Member User",
+      "email": "member@taskmanager.dev",
+      "role": "Member",
+      "passwordHash": "1641d9740ed3d57476e916d5ca52bf10:ec6dcadfe849e8d7ba2fa7e917e6211aad6d31158f31a745e55bf2d531b25dc4ef451c215c2205b5e6a9476e1d272c87eea560cdfffe940a91c7559e635492e2"
+    }
+  ],
+  "projects": [
+    {
+      "id": "p-demo",
+      "name": "Assignment Launch",
+      "description": "Full-stack team task manager project for deployment.",
+      "adminId": "u-admin",
+      "memberIds": [
+        "u-admin",
+        "u-member"
+      ],
+      "createdAt": "2026-05-07"
+    },
+    {
+      "id": "ac6a1d8d-2e6f-4d8b-a361-3345b9d779ec",
+      "name": "dfgh",
+      "description": "wert",
+      "adminId": "u-admin",
+      "memberIds": [
+        "u-admin"
+      ],
+      "createdAt": "2026-05-07"
+    }
+  ],
+  "tasks": []
+}
