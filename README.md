@@ -1,141 +1,120 @@
-# Team Task Manager
+TEAM TASK MANAGER
 
-Full-stack Team Task Management Web Application built with React, Vite, and a Node.js REST API.
+Project Name:
+Team Task Manager
 
-## Features
+Project Description:
+Team Task Manager is a full-stack web application where users can create and join projects, assign tasks, and track progress. It supports role-based access for Admin and Member users.
 
-- Signup and secure login with role selection: `Admin` or `Member`
-- Password hashing with Node `crypto`
-- Token-based authentication
-- Admin verified users can create projects
-- Admins can add/remove project members
-- Admins can create, assign, update, and delete tasks
-- Members can view only admin-allocated projects
-- Members can update only their assigned task status
-- Dashboard with total tasks, tasks by status, tasks per user, and overdue tasks
-- RESTful backend with JSON file database
-- Railway-ready `start` script and environment variables
+Features:
+1. User signup and secure login.
+2. Role-based login as Admin or Member.
+3. Password hashing and token-based authentication.
+4. Admin can create projects.
+5. Admin can add and remove project members.
+6. Admin can create, assign, update, and delete tasks.
+7. Member can view only admin-allocated projects.
+8. Member can view and update only assigned tasks.
+9. Task statuses: To Do, In Progress, Done.
+10. Task priority: Low, Medium, High, Critical.
+11. Dashboard showing total tasks, tasks by status, tasks per user, and overdue tasks.
+12. REST APIs with backend validation.
+13. JSON file database with Users, Projects, and Tasks relationships.
+14. Railway deployment support.
 
-## Demo Accounts
+Demo Login Details:
 
-Admin:
-
-```txt
+Admin Login:
 Email: admin@taskmanager.dev
 Password: admin123
 Role: Admin
-```
 
-Member:
-
-```txt
+Member Login:
 Email: member@taskmanager.dev
 Password: member123
 Role: Member
-```
 
-## Folder Structure
+Tech Stack:
+Frontend: React, Vite, CSS
+Backend: Node.js REST API
+Database: JSON file database
+Authentication: Token-based authentication with hashed passwords
+Deployment: Railway
 
-```txt
-server/
-  server.js              REST API and static frontend server
-  data/
-    seed.js              Initial demo users, projects, tasks
-    database.json        Created automatically at first server start
-  utils/
-    auth.js              Password hashing and token helpers
-    database.js          JSON database read/write helpers
+Setup Steps:
 
-src/
-  components/            Frontend UI modules
-  services/api.js        Frontend API client
-  data/mockData.js       Shared task status and priority options
-  utils/metrics.js       Dashboard calculations
-  App.jsx                Authenticated app shell and role logic
-  App.css                Main styling
-```
+1. Clone the GitHub repository:
+git clone YOUR_GITHUB_REPO_URL
 
-## Local Setup
+2. Open the project folder:
+cd team-task-manager
 
-Install dependencies:
-
-```bash
+3. Install dependencies:
 npm install
-```
 
-Start backend:
-
-```bash
+4. Start the backend server:
 npm run server
-```
 
-Start frontend in another terminal:
-
-```bash
+5. Start the frontend development server in another terminal:
 npm run dev
-```
 
-Open:
-
-```txt
+6. Open the app:
 http://localhost:5173
-```
 
-## Production Build
+Production Build Steps:
 
-```bash
+1. Build the frontend:
 npm run build
+
+2. Start the production server:
 npm start
-```
 
-The backend serves the built frontend from `dist` and exposes API routes under `/api`.
+The production server serves both the frontend and backend APIs.
 
-## Environment Variables
+Railway Deployment Steps:
 
-Copy `.env.example` and configure these values:
+1. Push the project to GitHub.
+2. Open Railway.
+3. Create a new project.
+4. Select Deploy from GitHub Repository.
+5. Choose the Team Task Manager repository.
+6. Add environment variable:
+JWT_SECRET=your_secure_secret_key
 
-```txt
-VITE_API_URL=http://localhost:4000/api
+7. Railway will install dependencies, build the project, and start the server.
+8. Generate a public Railway domain from the Networking section.
+9. Open the live Railway URL and test Admin and Member login.
+
+Environment Variables:
+
+JWT_SECRET=your_secure_secret_key
 PORT=4000
-JWT_SECRET=change-this-before-deploying
-CLIENT_ORIGIN=http://localhost:5173
-```
 
-For Railway, set:
+Live Application URL:
+PASTE_YOUR_RAILWAY_LIVE_URL_HERE
 
-```txt
-JWT_SECRET=<strong-secret>
-CLIENT_ORIGIN=<your-public-frontend-url>
-```
+GitHub Repository URL:
+PASTE_YOUR_GITHUB_REPOSITORY_URL_HERE
 
-If deploying frontend and backend as one Railway service, leave `VITE_API_URL` unset before build so the frontend uses `/api`.
+API Routes:
 
-## Railway Deployment
+POST /api/auth/signup
+POST /api/auth/login
+GET /api/me
+GET /api/users
+GET /api/projects
+POST /api/projects
+POST /api/projects/:projectId/members
+DELETE /api/projects/:projectId/members/:userId
+GET /api/projects/:projectId/tasks
+POST /api/projects/:projectId/tasks
+PUT /api/tasks/:taskId
+DELETE /api/tasks/:taskId
 
-1. Push this project to GitHub.
-2. Create a new Railway project from the GitHub repository.
-3. Add environment variable `JWT_SECRET`.
-4. Railway will run:
+Role-Based Access:
 
-```bash
-npm install
-npm run build
-npm start
-```
+Admin:
+Admin can create projects, manage members, create tasks, assign tasks, update tasks, delete tasks, and view dashboard details.
 
-5. Open the generated Railway public URL.
-
-## API Overview
-
-- `POST /api/auth/signup`
-- `POST /api/auth/login`
-- `GET /api/me`
-- `GET /api/users`
-- `GET /api/projects`
-- `POST /api/projects`
-- `POST /api/projects/:projectId/members`
-- `DELETE /api/projects/:projectId/members/:userId`
-- `GET /api/projects/:projectId/tasks`
-- `POST /api/projects/:projectId/tasks`
-- `PUT /api/tasks/:taskId`
-- `DELETE /api/tasks/:taskId`
+Member:
+Member can view only allocated projects and assigned tasks. Member can update the status of assigned tasks only.
