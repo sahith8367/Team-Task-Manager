@@ -87,14 +87,15 @@ JWT_SECRET=your_secure_secret_key
 
 Environment Variables:
 
-JWT_SECRET=your_secure_secret_key
+JWT_SECRET=
 PORT=4000
 
 Live Application URL:
-PASTE_YOUR_RAILWAY_LIVE_URL_HERE
+https://team-task-manager-production-9354.up.railway.app/
 
 GitHub Repository URL:
-PASTE_YOUR_GITHUB_REPOSITORY_URL_HERE
+https://github.com/sahith8367/Team-Task-Manager.git
+
 
 API Routes:
 
